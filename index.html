@@ -64,14 +64,42 @@
     </style>
 </head>
 <body>
-    <iframe class="video-background" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&loop=1&mute=1&controls=0&playlist=YOUR_VIDEO_ID" frameborder="0"></iframe>
-    <h1>Pergunta cringe mas queres ser o meu parzinho no dia dos Namorados? ❤️</h1>
+    <iframe class="video-background" src="https://youtu.be/fzQ6gRAEoy0?autoplay=1&loop=1&mute=1&controls=0" frameborder="0"></iframe>
+    
+    <h1>Amas-mi? ❤️</h1>
     <div class="buttons">
-        <button class="btn yes" onclick="alert('🥰😘😘 LINDAAAA, a outra tb pode vir se quiseres 😉😊')">Sim!</button>
-        <button class="btn no" id="noBtn">Não</button>
+        <button class="btn yes" onclick="nextQuestion(1)">Sim!</button>
+        <button class="btn no" onclick="alert('Mas a outra ama-me 😧')">Não</button>
     </div>
-        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="hidden-btn">🎥</a>
+    
+    <div id="question2" style="display: none;">
+        <h1>Podemos fazer o nosso dia ser a 15? (porque 14 é sexta e trabalho :c)</h1>
+        <button class="btn yes" onclick="nextQuestion(2)">Claro! ❤️</button>
+        <button class="btn no" onclick="alert('NIGGA aí é foda 😢')">Prefiro dia 14</button>
+    </div>
+    
+    <div id="finalQuestion" style="display: none;">
+        <h1>Vais ser o meu parzinho no NOSSO Dia dos Namorados? 👉👈 uwu ❤️</h1>
+        <div class="buttons">
+            <button class="btn yes" onclick="alert('😊')">Sim!</button>
+            <button class="btn no" id="noBtn">Não</button>
+        </div>
+    </div>
+    
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="hidden-btn">🎥</a>
+    
     <script>
+        function nextQuestion(step) {
+            if (step === 1) {
+                document.querySelector('h1').style.display = 'none';
+                document.querySelector('.buttons').style.display = 'none';
+                document.getElementById('question2').style.display = 'block';
+            } else if (step === 2) {
+                document.getElementById('question2').style.display = 'none';
+                document.getElementById('finalQuestion').style.display = 'block';
+            }
+        }
+
         document.getElementById("noBtn").addEventListener("mouseover", function() {
             const x = Math.random() * (window.innerWidth - this.clientWidth);
             const y = Math.random() * (window.innerHeight - this.clientHeight);
