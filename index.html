@@ -9,13 +9,18 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
-            background-color: #ffe6e6;
+            background: none;
+            overflow: hidden;
         }
         h1 {
             color: #ff4d4d;
+            position: relative;
+            z-index: 2;
         }
         .buttons {
             margin-top: 20px;
+            position: relative;
+            z-index: 2;
         }
         .btn {
             font-size: 20px;
@@ -34,15 +39,38 @@
             color: white;
             position: absolute;
         }
+        .hidden-btn {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 10px;
+            padding: 5px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 3;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            opacity: 0.2;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
+    <iframe class="video-background" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&loop=1&mute=1&controls=0&playlist=YOUR_VIDEO_ID" frameborder="0"></iframe>
     <h1>Pergunta cringe mas queres ser o meu parzinho no dia dos Namorados? ❤️</h1>
     <div class="buttons">
         <button class="btn yes" onclick="alert('🥰😘😘 LINDAAAA, a outra tb pode vir se quiseres 😉😊')">Sim!</button>
         <button class="btn no" id="noBtn">Não</button>
     </div>
-
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="hidden-btn">🎥</a>
     <script>
         document.getElementById("noBtn").addEventListener("mouseover", function() {
             const x = Math.random() * (window.innerWidth - this.clientWidth);
